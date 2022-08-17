@@ -9,7 +9,6 @@ export const App = (props) => {
   const { title } = props;
   const [gifs, setGifs] = useState([]);
 
-
   const fetchGifs = (str) => {
     fetch(`${SEARCH_URL}?api_key=${API_KEY}&q=${str ? str : "random"}&limit=50`)
       .then((res) => res.json())
@@ -25,14 +24,14 @@ export const App = (props) => {
   }, []);
 
   return (
-        <div className="app">
-          <header>{title}</header>
-          <main>
-            <h1>Search Giphy</h1>
-            <input onKeyDown={keydownHandler}></input>
-            <SearchResults data={gifs} />
-          </main>
-        </div>
+    <div className="app">
+      <header>{title}</header>
+      <main>
+        <h1>Search Giphy</h1>
+        <input onKeyDown={keydownHandler}></input>
+        <SearchResults data={gifs} />
+      </main>
+    </div>
   );
 };
 
